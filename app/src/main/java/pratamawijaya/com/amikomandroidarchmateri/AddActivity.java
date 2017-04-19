@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import butterknife.BindView;
@@ -32,6 +33,7 @@ public class AddActivity extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_add);
     ButterKnife.bind(this);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     dataManager = new DataManager();
 
@@ -45,6 +47,7 @@ public class AddActivity extends AppCompatActivity
         .deskripsi(desc.getText().toString())
         .lat(lat)
         .lng(lng)
+        .timestamp(System.currentTimeMillis())
         .build();
 
     dataManager.addLokasi(lokasi);
@@ -74,5 +77,12 @@ public class AddActivity extends AppCompatActivity
       lat = (float) mMap.getCameraPosition().target.latitude;
       lng = (float) mMap.getCameraPosition().target.longitude;
     }
+  }
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    if (item.getItemId() == android.R.id.home) {
+      onBackPressed();
+    }
+    return super.onOptionsItemSelected(item);
   }
 }

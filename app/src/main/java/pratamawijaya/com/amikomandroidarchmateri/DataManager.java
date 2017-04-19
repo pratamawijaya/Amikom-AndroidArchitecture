@@ -9,6 +9,9 @@ import java.util.List;
  * Created by pratama
  * Date : Apr - 4/19/17
  * Project Name : AmikomAndroidArchMateri
+ *
+ *
+ * https://github.com/codepath/android_guides/wiki/Clean-Persistence-with-Sugar-ORM
  */
 
 public class DataManager {
@@ -22,21 +25,13 @@ public class DataManager {
 
   public List<Lokasi> readAllLokasi() {
     Iterator<Lokasi> lokasiIterator = Lokasi.findAll(Lokasi.class);
-    //
     List<Lokasi> lokasiList = new ArrayList<>();
-
-    //lokasiList.add(new Lokasi.Builder().name("Jogja area")
-    //    .deskripsi("area wisata dengan pemandangan yang menyenangkan")
-    //    .build());
-    //lokasiList.add(new Lokasi.Builder().name("Jogja Bay")
-    //    .deskripsi("Taman bermain air yang menyenangkan")
-    //    .build());
 
     while (lokasiIterator.hasNext()) {
       lokasiList.add(lokasiIterator.next());
     }
 
-    Log.d(TAG, "readAllLokasi: "+lokasiList.size());
+    Log.d(TAG, "readAllLokasi: " + lokasiList.size());
     return lokasiList;
   }
 
