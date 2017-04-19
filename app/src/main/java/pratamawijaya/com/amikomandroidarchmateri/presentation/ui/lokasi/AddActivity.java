@@ -18,7 +18,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import pratamawijaya.com.amikomandroidarchmateri.R;
 import pratamawijaya.com.amikomandroidarchmateri.data.DataManager;
-import pratamawijaya.com.amikomandroidarchmateri.presentation.pojo.Lokasi;
 import pratamawijaya.com.amikomandroidarchmateri.presentation.ui.lokasi.presenter.AddPresenter;
 
 public class AddActivity extends AppCompatActivity
@@ -51,15 +50,8 @@ public class AddActivity extends AppCompatActivity
   }
 
   @OnClick(R.id.btnSimpan) void onSimpanClick() {
-
-    Lokasi lokasi = new Lokasi.Builder().name(nama.getText().toString())
-        .deskripsi(desc.getText().toString())
-        .lat(lat)
-        .lng(lng)
-        .timestamp(System.currentTimeMillis())
-        .build();
-
-    //presenter.saveLokasi(nama.get);
+    presenter.saveData(nama.getText().toString(), desc.getText().toString(), lat, lng,
+        System.currentTimeMillis());
   }
 
   @Override public void onMapReady(GoogleMap googleMap) {
