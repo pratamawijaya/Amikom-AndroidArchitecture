@@ -23,4 +23,4 @@ hal ini untuk memastikan dependency yang dibutuhkan didownload terlebih dahulu.
 ## Sesuaikan Google Map API
 
 Project ini menggunakan google map api, anda dapat menggunakan google api key anda sendiri, ubah nilai google api key
-di file *** app/src/debug/res/values/google_maps_api.xml***
+di file **app/src/debug/res/values/google_maps_api.xml**
