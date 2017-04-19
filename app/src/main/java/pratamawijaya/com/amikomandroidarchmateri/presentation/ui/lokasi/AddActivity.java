@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -15,9 +16,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import pratamawijaya.com.amikomandroidarchmateri.R;
 import pratamawijaya.com.amikomandroidarchmateri.data.DataManager;
 import pratamawijaya.com.amikomandroidarchmateri.presentation.pojo.Lokasi;
-import pratamawijaya.com.amikomandroidarchmateri.R;
 import pratamawijaya.com.amikomandroidarchmateri.presentation.ui.lokasi.presenter.AddPresenter;
 
 public class AddActivity extends AppCompatActivity
@@ -58,11 +59,7 @@ public class AddActivity extends AppCompatActivity
         .timestamp(System.currentTimeMillis())
         .build();
 
-    presenter.saveLokasi(lokasi);
-
-    Intent returnIntent = new Intent();
-    setResult(Activity.RESULT_OK, returnIntent);
-    finish();
+    //presenter.saveLokasi(nama.get);
   }
 
   @Override public void onMapReady(GoogleMap googleMap) {
@@ -92,5 +89,15 @@ public class AddActivity extends AppCompatActivity
       onBackPressed();
     }
     return super.onOptionsItemSelected(item);
+  }
+
+  @Override public void addLokasiSukses() {
+    Intent returnIntent = new Intent();
+    setResult(Activity.RESULT_OK, returnIntent);
+    finish();
+  }
+
+  @Override public void showError(String message) {
+    Toast.makeText(AddActivity.this, message, Toast.LENGTH_SHORT).show();
   }
 }

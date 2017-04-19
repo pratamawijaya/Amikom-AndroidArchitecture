@@ -7,4 +7,7 @@ package pratamawijaya.com.amikomandroidarchmateri.presentation.ui.lokasi;
  */
 
 public interface AddActivityView {
+  void addLokasiSukses();
+
+  void showError(String message);
 }
