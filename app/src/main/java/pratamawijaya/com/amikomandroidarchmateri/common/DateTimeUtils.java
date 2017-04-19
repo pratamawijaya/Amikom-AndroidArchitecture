@@ -1,4 +1,4 @@
-package pratamawijaya.com.amikomandroidarchmateri;
+package pratamawijaya.com.amikomandroidarchmateri.common;
 
 /**
  * Created by pratama

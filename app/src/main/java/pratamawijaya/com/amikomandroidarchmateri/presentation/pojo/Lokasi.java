@@ -1,4 +1,4 @@
-package pratamawijaya.com.amikomandroidarchmateri;
+package pratamawijaya.com.amikomandroidarchmateri.presentation.pojo;
 
 import com.orm.SugarRecord;
 import com.orm.dsl.Unique;

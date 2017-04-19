@@ -1,9 +1,10 @@
-package pratamawijaya.com.amikomandroidarchmateri;
+package pratamawijaya.com.amikomandroidarchmateri.data;
 
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import pratamawijaya.com.amikomandroidarchmateri.presentation.pojo.Lokasi;
 
 /**
  * Created by pratama

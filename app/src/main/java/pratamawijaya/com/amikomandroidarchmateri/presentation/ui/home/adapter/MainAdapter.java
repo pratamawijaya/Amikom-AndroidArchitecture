@@ -1,4 +1,4 @@
-package pratamawijaya.com.amikomandroidarchmateri;
+package pratamawijaya.com.amikomandroidarchmateri.presentation.ui.home.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import java.util.List;
+import pratamawijaya.com.amikomandroidarchmateri.presentation.pojo.Lokasi;
+import pratamawijaya.com.amikomandroidarchmateri.R;
 
 /**
  * Created by pratama

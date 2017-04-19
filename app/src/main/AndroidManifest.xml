@@ -32,14 +32,14 @@
         android:value="pratamawijaya.com.amikomandroidarchmateri"/>
 
 
-    <activity android:name=".MainActivity">
+    <activity android:name=".presentation.ui.home.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".AddActivity">
+    <activity android:name=".presentation.ui.lokasi.AddActivity">
     </activity>
     <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -53,10 +53,6 @@
         android:name="com.google.android.geo.API_KEY"
         android:value="@string/google_maps_key"/>
 
-    <activity
-        android:name=".MapsActivity"
-        android:label="@string/title_activity_maps">
-    </activity>
   </application>
 
 </manifest>

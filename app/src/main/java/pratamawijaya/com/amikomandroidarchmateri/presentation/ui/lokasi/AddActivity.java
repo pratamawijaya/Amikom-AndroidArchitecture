@@ -1,4 +1,4 @@
-package pratamawijaya.com.amikomandroidarchmateri;
+package pratamawijaya.com.amikomandroidarchmateri.presentation.ui.lokasi;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,9 +15,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import pratamawijaya.com.amikomandroidarchmateri.data.DataManager;
+import pratamawijaya.com.amikomandroidarchmateri.presentation.pojo.Lokasi;
+import pratamawijaya.com.amikomandroidarchmateri.R;
+import pratamawijaya.com.amikomandroidarchmateri.presentation.ui.lokasi.presenter.AddPresenter;
 
 public class AddActivity extends AppCompatActivity
-    implements OnMapReadyCallback, GoogleMap.OnCameraMoveListener {
+    implements OnMapReadyCallback, GoogleMap.OnCameraMoveListener, AddActivityView {
 
   @BindView(R.id.etNama) EditText nama;
   @BindView(R.id.etDesc) EditText desc;
@@ -29,6 +33,8 @@ public class AddActivity extends AppCompatActivity
   private float lng;
   private DataManager dataManager;
 
+  private AddPresenter presenter;
+
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_add);
@@ -36,6 +42,7 @@ public class AddActivity extends AppCompatActivity
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     dataManager = new DataManager();
+    presenter = new AddPresenter(this, dataManager);
 
     SupportMapFragment mapFragment =
         (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -43,6 +50,7 @@ public class AddActivity extends AppCompatActivity
   }
 
   @OnClick(R.id.btnSimpan) void onSimpanClick() {
+
     Lokasi lokasi = new Lokasi.Builder().name(nama.getText().toString())
         .deskripsi(desc.getText().toString())
         .lat(lat)
@@ -50,7 +58,7 @@ public class AddActivity extends AppCompatActivity
         .timestamp(System.currentTimeMillis())
         .build();
 
-    dataManager.addLokasi(lokasi);
+    presenter.saveLokasi(lokasi);
 
     Intent returnIntent = new Intent();
     setResult(Activity.RESULT_OK, returnIntent);
